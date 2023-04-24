@@ -12,10 +12,10 @@ int main(void)
   char bow;
 
   for (b = '0'; b <= '9'; b++)
-    puchar(b);
+    putchar(b);
   for (bow = 'a'; bow <= 'f'; bow++)
     putchar(bow);
-  putchar("\n");
+  putchar('\n');
 
   return (0);
 }
