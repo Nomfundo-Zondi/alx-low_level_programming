@@ -1,12 +1,11 @@
 #include <unistd.h>
-#include <main.h>
 #include "_putchar.h"
 /**
- * main -check description
+ * _putchar.c -check description
  * Description - print the word _putchar, followed by a new line
  * Return: 0
  */
-int main(void)
+int _putchar(void)
 {
   char letter[8] = "_putchar";
   int i;
