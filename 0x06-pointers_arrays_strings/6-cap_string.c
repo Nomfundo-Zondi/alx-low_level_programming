@@ -8,25 +8,38 @@
  */
 char *cap_string(char *s)
 {
-	int a = 0, i;
-	int cspc = 13;
-	char spc[] = {32, '\t', '\n', 44, ';', '?', '"', '(', ')', '{', '}'};
+	int i = 0;
 
-	while (s[a])
+	while (s[i])
 	{
-		i = 0;
+		if (i == 0 &&  (s[i] >= 'a' && s[i] <= 'z'))
+			s[i] -= 32;
 
-		while (i < cspc)
-		{
-			if ((a == 0 || s[a - 1] == spc[i]) && (s[a] >= 97 && s[a] <= 122))
-				s[a] -= 32;
+		if (check_seperators((s[i]) && (s[i + 1] >= 'a' && s[i + 1] <= 'z')))
+			s[i + 1] -= 32;
 
-			i++;
-		}
-
-		a++;
+		i++;
 	}
 
 	return (s);
+}
+
+/**
+ * check_seperators - seperators of words suchs space, tabulation, new line,
+ * ,, ;, ., !, ?
+ * @c: input character
+ * Return: 1 if seperator, 0 otherwise
+ */
+char check_seperators(char c)
+{
+	int i = 0;
+	char seperators[13] = { ' ', '\t', '\n', ',', ';', '.', '!', '?',
+		'"', '(', ')', '{', '}' };
+	for (; i < 13; i++)
+	{
+		if (c == seperators[i])
+			return (1);
+	}
+	return (0);
 }
 
