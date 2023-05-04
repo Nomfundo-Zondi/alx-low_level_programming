@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdio.h>
+int check_seperators(char c);
 /**
  * cap_string - capitalizing words of a string
  * @s: string to be capiitalized
@@ -30,7 +31,7 @@ char *cap_string(char *s)
  * @c: input character
  * Return: 1 if seperator, 0 otherwise
  */
-char check_seperators(char c)
+int check_seperators(char c)
 {
 	int i = 0;
 	char seperators[13] = { ' ', '\t', '\n', ',', ';', '.', '!', '?',
