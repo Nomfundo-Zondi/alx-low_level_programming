@@ -10,44 +10,50 @@
  */
 char *str_concat(char *s1, char *s2)
 {
-	int i = 0, j = 0, k = 0, l = 0;
-	char *s;
+	char *new_str, *stars1, *stars2;
+	int i = 0, lens1 = 0, lens2 = 0;
 
+	stars1 = s1;
+	stars2 = s2;
 	if (s1 == NULL)
 		s1 = "";
+	while (*s1)
+	{
+		lens1++;
+		s1++;
+	}
+	s1 = stars1;
 
-	if (s2  == NULL)
+	if (s2 == NULL)
 		s2 = "";
+	while (*s2)
+	{
+		lens2++;
+		s2++;
+	}
+	s2 = stars2;
 
-	while (s1[i])
-		i++;
-
-	while (s2[j])
-		j++;
-
-	l = i + j;
-	s = malloc((sizeof(char) * l) + 1);
-
-	if (s == NULL)
+	new_str = malloc(sizeof(char) * (lens1 + lens2 + 1));
+	stars1 = new_str;
+	
+	if (new_str == NULL)
 		return (NULL);
 
-	j = 0;
-
-	while (k < l)
+	for (; i < (lens1 + lens2); i++)
 	{
-		if (k <= i)
-			s[k] = s1[k];
-
-		if (k >= 1)
+		if (i < lens1)
 		{
-			s[k] = s2[j];
-			j++;
+			new_str[i] = *s1;
+			s1++;
 		}
-
-		k++;
+		else
+		{
+			new_str[i] = *s2;
+			s2++;
+		}
 	}
 
-	s[k] = '\0';
-	return (s);
+	new_str[i] = '\0';
+	return (stars1);
 }
 
