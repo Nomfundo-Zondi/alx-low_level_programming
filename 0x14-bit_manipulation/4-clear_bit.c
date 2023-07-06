@@ -1,7 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "main.h"
-
 /**
  * clear_bit - value set of 0 at given index
  * @n: modified number
