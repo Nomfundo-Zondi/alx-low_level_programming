@@ -1,5 +1,6 @@
-#ifndef _BIT_MANIP_
+#ifndef _BIT_MANIP__
 #define _BIT_MANIP_
+#include <stdlib.h>
 
 int _putchar(char c);
 int _strlen(const char *s);
